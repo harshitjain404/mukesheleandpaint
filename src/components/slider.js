@@ -1,46 +1,87 @@
-import React ,{useState }from "react"
-import {FaArrowAltCircleRight , FaArrowAltCircleLeft , FaChalkboardTeacher} from "react-icons/fa";
+import React, { useState, useEffect, useRef } from 'react';
 import "./slider.css"
 
-function Slider () {
+const Slider = ({ images, autoSlide = true, slideInterval = 3000, showControls = true, showIndicators = true }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const timerRef = useRef(null);
 
-    const [Current , setCurrent] = useState(0)
-        const nextSlide = () => {
-        setCurrent(Current === Sliderdata.length - 1 ? 0 : Current +1  )
+  useEffect(() => {
+    if (!images || images.length === 0) return; // Handle empty images array
+
+    if (autoSlide) {
+      startAutoSlide();
     }
 
-const prevSlide = ( ) => {
-    setCurrent(Current === 0 ? Sliderdata.length -1 : Current -1 )
-}
+    return () => {
+      clearInterval(timerRef.current);
+    };
+  }, [autoSlide, slideInterval, images]);
 
-    const Sliderdata = [
-        {
-            src : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s"
-        },
-        {
-            src:'./fdueagfoef/aefiufe.png'
-        },
-        {
-            src:'okueyfrowqyrpoqwyrp/oufh.png'
-        }
-    ]
+  const startAutoSlide = () => {
+    timerRef.current = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, slideInterval);
+  };
 
-    Sliderdata.map((slide , index) => {
-// console.log(index , slide.src)
-return(
-    <div>
+  const goToPrevious = () => {
+    clearInterval(timerRef.current);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    if (autoSlide) startAutoSlide();
+  };
 
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s" alt="hii"/>
-    <div className={index === Current ? 'slide Active ' : 'slide'} 
-                  key={index}>
-            <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide}  />
-             <FaArrowAltCircleRight className="right-arrow"  onClick={nextSlide} />
+  const goToNext = () => {
+    clearInterval(timerRef.current);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    if (autoSlide) startAutoSlide();
+  };
+
+  const goToSlide = (index) => {
+    clearInterval(timerRef.current);
+    setCurrentIndex(index);
+    if (autoSlide) startAutoSlide();
+  };
+
+  if (!images || images.length === 0) {
+    return <div>No images to display.</div>;
+  }
+
+  return (
+    <div className="slider-container">
+      <div className="slider-content">
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`slide ${currentIndex === index? 'active': ''}`}
+            style={{ backgroundImage: `url(${image})` }} // Use backgroundImage for images
+          ></div>
+        ))}
+      </div>
+
+      {showControls && (
+        <div className="slider-controls">
+          <button onClick={goToPrevious} className="slider-button">
+            Previous
+          </button>
+          <button onClick={goToNext} className="slider-button">
+            Next
+          </button>
         </div>
-        </div>
-)
-    })
-}
+      )}
 
-            
- 
-export default Slider 
+      {showIndicators && (
+        <div className="slider-indicators">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`indicator-button ${currentIndex === index? 'active': ''}`}
+            ></button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+
+export default Slider;
