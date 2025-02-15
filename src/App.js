@@ -4,6 +4,7 @@ import Home from "./pages/home"
 import About from "./pages/about"
 import Service from "./pages/services"
 import Contact from "./pages/contact"
+import Footer from "./components/footer"
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -26,7 +27,7 @@ function App() {
          <Route path='/contact' element={<Contact/>} />
         </Routes>
        </Router>
-
+<Footer/>
       
 
 
