@@ -1,108 +1,70 @@
-/* Slider.css */
-.slider-container {
-    position: relative;
-    width: 800px; /* Adjust as needed */
-    margin: 0 auto;
-    overflow: hidden; /* Key for containing the slides */
-  }
-  
-  .slider-content {
-    width: 100%;
-    position: relative; /* For absolute positioning of slides */
-    height: 400px; /* Set a height for your slider */
-  }
-  
-  .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover; /* or contain, depending on your needs */
-    background-position: center;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out; /* Smooth transitions */
-  }
-  
-  .slide.active {
-    opacity: 1;
-  }
-  
-  .slider-controls {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    z-index: 1; /* Ensure controls are on top */
-  }
-  
-  .slider-button {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    margin: 0 5px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .slider-indicators {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    z-index: 1; /* Ensure indicators are on top */
-  }
-  
-  .indicator-button {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: none;
-    margin: 0 5px;
-    cursor: pointer;
-  }
-  
-  .indicator-button.active {
-    background-color: rgba(0, 0, 0, 0.7);
-  }
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+}
 
-  /* Slider.css */
-.slider-container {
-    position: relative;
-    width: 100%; /* Occupy full width */
-    margin: 0 auto;
-    overflow: hidden;
-    margin-bottom: 2%;
-  }
-  
-  .slider-content {
-    width: 100%; /* Occupy full width */
-    position: relative;
-    /* Remove fixed height, or use viewport units for dynamic height */
-    height: 0; /* Important for aspect ratio */
-    padding-bottom: 56.25%; /* 16:9 aspect ratio (adjust as needed) */
-    /* OR, if you want the slider to always fill the screen height (not recommended for most cases): */
-    /* height: 100vh; */
-  }
-  
-  .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  .slide.active {
-    opacity: 1;
-  }
-  
-  /* ... (rest of the CSS is the same) */
+/* Each slide */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.slide.active {
+  left: 0;
+  opacity: 1;
+}
+
+/* Overlay text on slide */
+.slide-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.slide-overlay h2 {
+  margin: 0 0 5px;
+  font-size: 24px;
+}
+
+.slide-overlay p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Navigation dots */
+.dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.dot.active {
+  opacity: 1;
+}
