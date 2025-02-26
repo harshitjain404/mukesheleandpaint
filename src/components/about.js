@@ -10,9 +10,9 @@ function About() {
         <img
           src="https://static.wixstatic.com/media/84770f_0ae67e812c74418ab1cad6522475f6ed~mv2.jpg/v1/fill/w_662,h_479,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/84770f_0ae67e812c74418ab1cad6522475f6ed~mv2.jpg"
           alt="Tools"
-          className="about-image"
+          className="about-image abt-section"
         />
-        <p className="about-text">
+        <p className="about-text abt-section">
           Mukesh Paints and Electric is your go-to destination for all your
           construction and waterproofing needs. We take pride in offering a
           wide range of high-quality products to ensure that you have

@@ -57,8 +57,8 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-brand">
         <h2>Mukesh Paints &amp; Elec</h2>
-        <p>1234 Industrial Road, City, Country</p>
-        <p>Phone: +1 (234) 567-890</p>
+        <p>No 1, Shridhar CHS , Hanuman rd , Vile Parle (e) , Mmbai Maharashtra 400-057</p>
+        <p>Phone: +91 99206 84385</p>
       </div>
 
       <div className="footer-social">
@@ -77,6 +77,13 @@ const Footer = () => {
         </div>
 
         <div className="social-icon">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <FaInstagram className="icon" />
+          </a>
+          <span className="social-label">Instagram</span>
+        </div>
+
+        <div className="social-icon">
           <a href="https://www.indiamart.com" target="_blank" rel="noopener noreferrer">
             <FaStoreAlt className="icon" />
           </a>
@@ -90,12 +97,6 @@ const Footer = () => {
           <span className="social-label">Justdial</span>
         </div>
 
-        <div className="social-icon">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            <FaInstagram className="icon" />
-          </a>
-          <span className="social-label">Instagram</span>
-        </div>
       </div>
 
       <div className="footer-bottom">

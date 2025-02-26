@@ -1,9 +1,19 @@
 .about-content-homepg{
     /* padding: 5%; */
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 40px;
 
+}
+.abt-section{
+    flex: 1;
+    flex-basis: 200;
+    min-width: 300px;
+    max-width: 40%;
+    /* padding: 20px;
+    background-color: #f8f8f8; */
+    border-radius: 8px;
 }
 .about-container h1 {
     font-size: 100px;

@@ -2,7 +2,7 @@ import React from 'react'
 import Product from "./products"
 function Service() {
   return (
-    <div>Services
+    <div>
       <Product/>
     </div>
     

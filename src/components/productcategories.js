@@ -2,7 +2,7 @@ import React from 'react';
 import './productcategories.css';  
 const ProductCategories = () => {  
   return (  
-    <div className="product-categories">  
+    <div className='product-section'>  
 
       <h1>Our Product Categories</h1>  
       <img
@@ -10,7 +10,7 @@ const ProductCategories = () => {
           alt="Tools"
           className="product-categories-image"
         />
-
+<div className="product-categories">
       <div className="categories">  
         <div className="category">  
           <h2>Paints</h2>  
@@ -33,6 +33,7 @@ const ProductCategories = () => {
           <div className="separator"></div>  
         </div>  
       </div>  
+      </div>
       <button className="explore-button">Explore All Products</button>  
     </div>  
   );  

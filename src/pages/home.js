@@ -29,9 +29,9 @@ const slides = [
 ];
 
   return (
-    <div>
-        <h1 className='libre-baskerville-bold'>Welcome to mukesh paints and electric</h1>
-        <h3 className='libre-baskerville-bold'>Construction and water proofing  
+    <div className='wlcm-title'> 
+        <h1 className='libre-baskerville-bold ' >Welcome to mukesh paints and electric</h1>
+        <h3 className='libre-baskerville-bold '>Construction and water proofing  
          <br/>supplies for every project</h3>
          <div>
 
