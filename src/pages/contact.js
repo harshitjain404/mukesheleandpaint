@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./contact.css";
-
+import ContactForm from  "../components/contact-form.js";
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -21,47 +21,8 @@ const Contact = () => {
   return (
     <div className="contact-container">
       <h1>Contact Us</h1>
-      <div className="contact-content">
-        {/* Contact Form */}
-        <div className="contact-form">
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name</label>
-            <input
-              id="name"
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-
-            <label htmlFor="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Your Message"
-              rows="5"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            ></textarea>
-
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
-
+      
+   <ContactForm/>
         {/* Google Maps Section */}
         <div className="contact-map">
           <iframe
@@ -81,7 +42,7 @@ const Contact = () => {
             Open in Google Maps
           </a>
         </div>
-      </div>
+   
     </div>
   );
 };

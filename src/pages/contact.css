@@ -1,7 +1,7 @@
 /* Container for the Contact page */
 .contact-container {
-    max-width: 1200px;
-    margin: 0 auto;
+    /* max-width: 1200px; */
+    
     padding: 40px 20px;
     font-family: Arial, sans-serif;
     color: #2d4019;
@@ -14,7 +14,9 @@
     font-weight: bold;
     margin-bottom: 20px;
     color: #2d4019; 
-    text-align: left;  }
+    text-align: left;
+    
+  }
   
   /* Content Layout */
   .contact-content {
